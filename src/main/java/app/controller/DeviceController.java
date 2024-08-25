@@ -49,4 +49,9 @@ public class DeviceController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/by-brand")
+    public ResponseEntity<List<Device>> searchDevicesByBrand(@RequestParam String brand) {
+        return ResponseEntity.ok(deviceService.searchDevicesByBrand(brand));
+    }
+
 }

@@ -55,4 +55,8 @@ public class DeviceService {
         deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException(id));
         deviceRepository.deleteById(id);
     }
+
+    public List<Device> searchDevicesByBrand(String brand) {
+        return deviceRepository.findByBrand(brand);
+    }
 }
