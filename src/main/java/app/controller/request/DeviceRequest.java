@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class DeviceRequest {
-    private String name;
+  private String name;
 
-    private String brand;
+  private String brand;
 }

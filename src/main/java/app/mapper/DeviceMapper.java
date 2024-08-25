@@ -9,10 +9,9 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface DeviceMapper {
 
-    DeviceMapper INSTANCE = Mappers.getMapper(DeviceMapper.class);
+  DeviceMapper INSTANCE = Mappers.getMapper(DeviceMapper.class);
 
-    Device dtoToEntity(DeviceDto deviceDto);
+  Device dtoToEntity(DeviceDto deviceDto);
 
-    DeviceDto requestToDto(DeviceRequest deviceRequest);
-
+  DeviceDto requestToDto(DeviceRequest deviceRequest);
 }

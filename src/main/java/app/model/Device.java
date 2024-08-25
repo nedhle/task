@@ -1,12 +1,12 @@
 package app.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -16,16 +16,15 @@ import java.time.LocalDateTime;
 @Table(name = "DEVICE")
 public class Device {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-    private String name;
+  private String name;
 
-    private String brand;
+  private String brand;
 
-    @CreationTimestamp
-    @Column(name = "creation_time", updatable = false, insertable = false)
-    private LocalDateTime creationTime;
-
+  @CreationTimestamp
+  @Column(name = "creation_time", updatable = false, insertable = false)
+  private LocalDateTime creationTime;
 }
