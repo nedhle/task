@@ -25,4 +25,11 @@ public class DeviceController {
     public ResponseEntity<List<Device>> listAllDevices() {
         return ResponseEntity.ok(deviceService.listAllDevices());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Device> getDeviceByUuid(@PathVariable Long id) {
+        return deviceService.getDeviceById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
