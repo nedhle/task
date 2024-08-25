@@ -43,4 +43,10 @@ public class DeviceController {
         return ResponseEntity.ok(deviceService.patchDevice(id, deviceRequest));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteDevice(@PathVariable Long id) {
+        deviceService.deleteDevice(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

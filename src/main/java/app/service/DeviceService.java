@@ -6,6 +6,7 @@ import app.exception.DeviceNotFoundException;
 import app.mapper.DeviceMapper;
 import app.model.Device;
 import app.repository.DeviceRepository;
+import app.util.PatchUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -48,5 +49,10 @@ public class DeviceService {
             PatchUtil.updateNonNullFields(deviceDto, device);
             return deviceRepository.save(device);
         }).orElseThrow(() -> new DeviceNotFoundException(id));
+    }
+
+    public void deleteDevice(Long id) {
+        deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException(id));
+        deviceRepository.deleteById(id);
     }
 }
