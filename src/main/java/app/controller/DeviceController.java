@@ -37,4 +37,10 @@ public class DeviceController {
     public ResponseEntity<Device> updateDevice(@PathVariable Long id, @RequestBody DeviceRequest deviceRequest) {
         return ResponseEntity.ok(deviceService.updateDevice(id, deviceRequest));
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Device> partialUpdateDevice(@PathVariable Long id, @RequestBody DeviceRequest deviceRequest) {
+        return ResponseEntity.ok(deviceService.patchDevice(id, deviceRequest));
+    }
+
 }

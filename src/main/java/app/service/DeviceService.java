@@ -40,4 +40,13 @@ public class DeviceService {
             return deviceRepository.save(device);
         }).orElseThrow(() -> new DeviceNotFoundException(id));
     }
+
+    public Device patchDevice(Long id, DeviceRequest deviceRequest){
+        DeviceDto deviceDto = deviceMapper.requestToDto(deviceRequest);
+
+        return deviceRepository.findById(id).map(device -> {
+            PatchUtil.updateNonNullFields(deviceDto, device);
+            return deviceRepository.save(device);
+        }).orElseThrow(() -> new DeviceNotFoundException(id));
+    }
 }
