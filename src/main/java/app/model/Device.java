@@ -25,6 +25,6 @@ public class Device {
   private String brand;
 
   @CreationTimestamp
-  @Column(name = "creation_time", updatable = false, insertable = false)
+  @Column(name = "creation_time", updatable = false)
   private LocalDateTime creationTime;
 }
