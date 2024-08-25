@@ -30,4 +30,14 @@ public class DeviceService {
     public Optional<Device> getDeviceById(Long id) {
         return Optional.ofNullable(deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException(id)));
     }
+
+    public Device updateDevice(Long id, DeviceRequest deviceRequest) {
+        DeviceDto deviceDto = deviceMapper.requestToDto(deviceRequest);
+
+        return deviceRepository.findById(id).map(device -> {
+            device.setName(deviceDto.getName());
+            device.setBrand(deviceDto.getBrand());
+            return deviceRepository.save(device);
+        }).orElseThrow(() -> new DeviceNotFoundException(id));
+    }
 }

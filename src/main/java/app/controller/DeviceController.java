@@ -32,4 +32,9 @@ public class DeviceController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Device> updateDevice(@PathVariable Long id, @RequestBody DeviceRequest deviceRequest) {
+        return ResponseEntity.ok(deviceService.updateDevice(id, deviceRequest));
+    }
 }
