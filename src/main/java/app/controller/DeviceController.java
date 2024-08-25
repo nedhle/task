@@ -5,10 +5,9 @@ import app.model.Device;
 import app.service.DeviceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/devices")
@@ -20,5 +19,10 @@ public class DeviceController {
     @PostMapping
     public ResponseEntity<Device> addDevice(@RequestBody DeviceRequest deviceRequest) {
         return ResponseEntity.ok(deviceService.addDevice(deviceRequest));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Device>> listAllDevices() {
+        return ResponseEntity.ok(deviceService.listAllDevices());
     }
 }

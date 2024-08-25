@@ -8,6 +8,8 @@ import app.repository.DeviceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class DeviceService {
@@ -17,5 +19,9 @@ public class DeviceService {
     public Device addDevice(DeviceRequest deviceRequest) {
         DeviceDto deviceDto = deviceMapper.requestToDto(deviceRequest);
         return deviceRepository.save(deviceMapper.dtoToEntity(deviceDto));
+    }
+
+    public List<Device> listAllDevices() {
+        return deviceRepository.findAll();
     }
 }
