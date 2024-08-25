@@ -22,7 +22,7 @@ This project is a RESTful API for managing devices. The API is built using Sprin
 
     ```bash
     git clone https://github.com/nedhle/task.git
-    cd device-service
+    cd task
     ```
 
 2. Build the project with Maven:
