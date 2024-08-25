@@ -27,7 +27,7 @@ public class DeviceController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Device> getDeviceByUuid(@PathVariable Long id) {
+    public ResponseEntity<Device> getDeviceById(@PathVariable Long id) {
         return deviceService.getDeviceById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
